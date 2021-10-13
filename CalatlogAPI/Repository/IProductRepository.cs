@@ -8,14 +8,14 @@ namespace CalatlogAPI.Repository
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetProducts();
-        Product GetProduct(string id);
-        IEnumerable<Product> GetProductsByName(string name);
-        IEnumerable<Product> GetProductsByCategory(string category);
+        Task<IEnumerable<Product>> GetProducts();
+        Task<Product> GetProduct(string id);
+        Task<IEnumerable<Product>> GetProductsByName(string name);
+        Task<IEnumerable<Product>> GetProductsByCategory(string category);
 
-        void CreateProduct(Product product);
-        void UpdateProduct(Product product);
-        void DeleteProduct(string id);
+        Task CreateProduct(Product product);
+        Task<bool> UpdateProduct(Product product);
+        Task<bool> DeleteProduct(string id);
 
     }
 }
